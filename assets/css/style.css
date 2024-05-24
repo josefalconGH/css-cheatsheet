@@ -1,0 +1,230 @@
+:root {
+
+    /* color vars */
+    --background-color: #0d1117;
+    --bright: #6b51fa;
+    --accent: #005eca;
+    --text-color-main: #90b2fc;
+    --text-color-secondary: #c2c2c2;
+    
+    /* font vars */
+    --main-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --code-font: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
+
+}
+
+/* set content highlight color and background */
+::selection {
+background-color: var(--bright);
+color: var(----background-color);
+}
+
+* {
+    box-sizing: border-box;
+
+    background-color: var(--background-color);
+}
+
+/* semantic elements */
+    html {
+        /* set 1rem to 10px instead of native 16px */
+        font-size: 62.5%;
+    }
+
+    body {
+        /* Sans Serif font stack */
+        font-family: var(--main-font);
+
+        /* set body font size to 1.75rem, making it 17.5px  */
+        font-size: 1.75rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0.625rem;
+      color: var(--text-color-main);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    h1 {
+        /* 4rem = 40px (4 * 10px) */
+        font-size: 4rem;
+    }
+      
+    h2 {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    code {
+        font-family: var(--code-font);
+        font-size: 1.75rem;
+        text-align: left;
+    }
+
+    header {
+        width: 96%;
+        margin: 0 auto;
+        padding: 2.5rem;
+        text-align: center;
+    }
+
+    main {
+        width: 96%;
+        margin: 2rem auto;
+    }
+
+    footer {
+        margin: 1.5rem;
+        text-align: center;
+    }
+
+    section {
+        width: 98%;
+        margin: 3rem auto;
+    }
+
+/* class selectors */
+    header h1.page-title {
+        color: var(--text-color-main);
+        padding: 1rem 1.2 rem;
+        font-size: 4.5rem;
+    }
+
+    /* create our main grid with flexbox */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        /* negative margins to offset the padding on the .card-column class */
+        margin-left: 1.5rem;
+        margin-right: -1.5rem;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    /* with mobile first styling, base column 100% and adjusting using media query */
+    .card-column {
+        flex: 1 0 100%;
+        padding: 1.5rem;
+
+        /* when the screen resizes, make it so our columns don't jump in size (500ms timing) */
+        transition: flex-basis 500ms linear;
+        margin-bottom: 1.5rem;
+    }
+
+    /* make each card flexbox column */
+    .code-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 100%;
+        padding: 2rem;
+        color: var(--text-color-secondary);
+        font-size: 2rem;
+        text-align: center;
+
+        /* use outline to outline box on the outside */
+        /* make the border a complete gradient that goes towards the bottom*/
+        border: 5px solid var(--bright);
+        border-image: linear-gradient(var(--bright), var(--accent));
+        border-image-slice: 1;
+    }
+
+    .code-card .card-header {
+        /* use position and negative margins to move title of card over the card's outline */
+        position: relative;
+        margin: -4rem 0 1.5rem 0;
+        padding: 0.5rem 1rem;
+        background-color: var(--background-color);
+        color: var(--text-color-main);
+        border: 3px solid var(--bright);
+        border-image: linear-gradient(to right, var(--bright), var(--accent));
+        border-image-slice: 1;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    /* set an outer and inner drop shadow */
+    .code-card:hover, 
+    .code-card:hover .card-header {
+        box-shadow: inset 0px 0px 8px var(--bright), 0 0 15px var(--bright);
+    }
+
+    /* making each card even in height based on page size */
+    .code-card .code-block {
+        flex-grow: 1;
+        border-radius: 1rem;
+
+        /* align block in center */
+        display: flex;
+        justify-content: center;
+    }
+
+    .code-card pre {
+        /* set styles to make it so code wraps in <pre> instead of overflowing */
+        white-space: pre-wrap;
+        overflow: auto;
+        tab-size: 4;
+        padding: 1.2rem 1rem;
+        color: var(--text-color-secondary);
+
+        /* use linear-gradient() function to create a fading background */
+        background-image: linear-gradient(rgba(52, 50, 70, 0.3) 0%,
+                                        rgba(0, 1, 10, 0.6) 100%);
+
+        display: flex;
+        align-items: center;
+    }
+
+    /* on <pre> click, select all contents so the code is highlighted */
+    .code-card pre:active {
+        user-select: all;
+    }
+/* media query sizing */
+    /* tablet sizing */
+    @media screen and (min-width: 768px) {
+        .card-column {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        /* select the last child to grow to full width if it has space to grow */
+        .card-column:last-child {
+            flex-grow: 1;
+        }
+    }
+
+    /* desktop sizing */
+    @media screen and (min-width: 992px) {
+        header {
+            width: 75%;
+        }
+
+        .card-column {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+    }

@@ -181,6 +181,8 @@ color: var(----background-color);
         /* align block in center */
         display: flex;
         justify-content: center;
+
+        transition: all 0.5s ease-in-out
     }
 
     .code-card pre {

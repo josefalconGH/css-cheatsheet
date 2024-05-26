@@ -162,8 +162,8 @@ color: var(----background-color);
         padding: 0.5rem 1rem;
         background-color: var(--background-color);
         color: var(--text-color-main);
-        border: 3px solid var(--bright);
-        border-image: linear-gradient(to right, var(--bright), var(--accent));
+        border: 5px solid var(--bright);
+        border-image: linear-gradient(var(--bright), var(--accent));
         border-image-slice: 1;
 
         transition: all 0.5s ease-in-out;

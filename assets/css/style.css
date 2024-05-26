@@ -151,6 +151,8 @@ color: var(----background-color);
         border: 5px solid var(--bright);
         border-image: linear-gradient(var(--bright), var(--accent));
         border-image-slice: 1;
+
+        transition: all 0.5s ease-in-out;
     }
 
     .code-card .card-header {
@@ -181,8 +183,6 @@ color: var(----background-color);
         /* align block in center */
         display: flex;
         justify-content: center;
-
-        transition: all 0.5s ease-in-out
     }
 
     .code-card pre {

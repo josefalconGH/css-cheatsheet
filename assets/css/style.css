@@ -165,7 +165,7 @@ color: var(----background-color);
         border: 5px solid var(--bright);
         border-image: linear-gradient(var(--bright), var(--accent));
         border-image-slice: 1;
-
+        
         transition: all 0.5s ease-in-out;
     }
 
@@ -205,6 +205,7 @@ color: var(----background-color);
     .code-card pre:active {
         user-select: all;
     }
+    
 /* media query sizing */
     /* tablet sizing */
     @media screen and (min-width: 768px) {

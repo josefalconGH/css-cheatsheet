@@ -153,6 +153,53 @@ margin-top: -20px;
                 </figure>
             </section>
 
+            <!-- Utilize Pseudo-Classes For Interactivity snippet section -->
+            <section class="card-column">
+                <figure class="card code-card">
+                    <h2 class="card-header">Pseudo-Classes For Interactivity</h2>
+                    <div class="card-body">
+                        <p>
+                            Pseudo-classes let you apply styles to elements based on their state or position in the document tree.
+                        </p>
+                    </div>
+                    <!-- with the <pre> element, it counts all spaces literally -->
+                    <pre class="code-block">
+                        <code>.button:hover {
+background-color: var(–-highlight-color);
+}
+
+input:focus {
+outline: 2px solid var(–main-color);
+}
+                        </code>
+                    </pre>
+                </figure>
+            </section>
+
+            <!-- Use CSS Variables for Consistency snippet section -->
+            <section class="card-column">
+                <figure class="card code-card">
+                    <h2 class="card-header">Use CSS Variables for Consistency</h2>
+                    <div class="card-body">
+                        <p>
+                            Variables allow you to store and reuse specific values throughout your stylesheet, making your code more maintainable.
+                        </p>
+                    </div>
+                    <!-- with the <pre> element, it counts all spaces literally -->
+                    <pre class="code-block">
+                        <code>:root {
+–-main-color: #3498db;
+–-font-size-lg: 2rem;
+}
+
+h1 {
+    color: var(–main-color);
+    font-size: var(–font-size-lg);
+}
+                        </code>
+                    </pre>
+                </figure>
+            </section>
         </section>
     </main>
 
